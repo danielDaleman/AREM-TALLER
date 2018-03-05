@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package taller.arem.Ejercicios4_3_1;
+package taller.arem.Ejercicio4_3_1;
 
 import java.net.*;
 import java.io.*;
