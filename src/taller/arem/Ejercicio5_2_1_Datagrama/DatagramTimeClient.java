@@ -19,6 +19,7 @@ import java.util.logging.Logger;
  */
 public class DatagramTimeClient {
     public static void main(String[] args) throws SocketException, IOException, InterruptedException {                        
+        String received = null;
         while(true){
             byte[] sendBuf = new byte[256];        
             try {            
@@ -27,15 +28,20 @@ public class DatagramTimeClient {
                 byte[] buf = new byte[256];
                 InetAddress address = InetAddress.getByName("127.0.0.1");
                 
-                DatagramPacket packet = new DatagramPacket(buf, buf.length, address, 45000);                                               
+                DatagramPacket packet = new DatagramPacket(buf, buf.length, address, 45000);                    
                 socket.send(packet);                                
-                                                
-                packet = new DatagramPacket(buf, buf.length);
-                                                
-                socket.receive(packet);
+                packet = new DatagramPacket(buf, buf.length);                             
+                socket.setSoTimeout(1);
+                try{
+                    
+                    socket.receive(packet);
+                    received = new String(packet.getData(), 0, packet.getLength());
+                    System.out.println("Date: " + received);
+                }catch(Exception e){
+                    System.out.println("Date: " + received);
+                    socket.close();               
+                }                                                                                                
                 
-                String received = new String(packet.getData(), 0, packet.getLength());
-                System.out.println("Date: " + received);
                 
                 Thread.sleep(5000);
                 
