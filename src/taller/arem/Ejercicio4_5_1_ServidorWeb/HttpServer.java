@@ -42,18 +42,9 @@ public class HttpServer {
                 break;
             }
         }
-        outputLine = "HTTP/1.1 200 OK \n"
-            + "Content-Type: text/html; charset=utf-8\n"
-            + "Cache-Control: public, max-age=60, s-maxage=300\n"
-            + "Vary: Accept-Encoding\n"
-            + "Content-Encoding: raw\n"
-            + "Server: DPS/1.3.5\n"
-            + "X-SiteId: 2000\n"
-            + "Set-Cookie: dps_site_id=2000; path=/\n"
-            + "ETag: a1be084ec13bc207c17c49955f875fab\n"
-            + "Date: Mon, 26 Feb 2018 21:47:54 GMT\n"
-            + "Connection: keep-alive\n"
-            + "Transfer-Encoding: chunked\n"                         
+        outputLine = "HTTP/1.1 200 \r\n"
+            + "Content-Type: text/html \r\n"
+            +"\r\n"
             + "<!DOCTYPE html>"
             + "<html>"
             + "<head>"
